@@ -14,7 +14,7 @@ const getData = async () => {
   const path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
   const file = `${m < 10 ? '0' + m : m}-${d < 10 ? '0' + d : d}-${y}.csv`
 
-  return data = await fetch(path + file)
+  return data = fetch(path + file)
     .then(r => r.text())
     .then(t => parse(t))
 }
