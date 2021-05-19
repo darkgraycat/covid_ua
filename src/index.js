@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App.jsx'
-import fetchData from './fetchData.js'
+import fetchCountryData from './fetchCountryData.js'
 import padZeros from './padZeros.js'
 import parseCsv from './parseCsv.js'
 
@@ -37,7 +37,7 @@ const URL = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/cs
 // }
 
 
-const dddd = fetchData()
+const dddd = fetchCountryData('Ukraine')
   .then(resp => {
     console.log(resp)
     return resp
