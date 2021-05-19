@@ -43,7 +43,15 @@ const dddd = fetchCountryData('Ukraine')
     return resp
   })
 
+setTimeout(() => {
 
+  const hhhh = fetchCountryData('Russia')
+    .then(resp => {
+      console.log(resp)
+      return resp
+    })
+
+}, 2000)
 
 
 ReactDOM.render(

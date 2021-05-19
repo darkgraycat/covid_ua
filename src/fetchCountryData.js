@@ -1,10 +1,11 @@
-export default async country => (await getData()).filter(o => o['Country_Region'] == country)
-
 let data = null
 
-const getData = async () => {
-  if (data) return data
+export default async country => (await getData()).filter(o => o['Country_Region'] == country)
 
+const getData = async () => {
+  console.info('request data')
+  if (data) return data
+  console.info('no data. fetching...')
   const now = new Date()
   const d = now.getDate() - 1
   const m = now.getMonth() + 1
@@ -13,11 +14,9 @@ const getData = async () => {
   const path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
   const file = `${m < 10 ? '0' + m : m}-${d < 10 ? '0' + d : d}-${y}.csv`
 
-  data = await fetch(path + file)
+  return data = await fetch(path + file)
     .then(r => r.text())
     .then(t => parse(t))
-
-  return data
 }
 
 const parse = csv => {
