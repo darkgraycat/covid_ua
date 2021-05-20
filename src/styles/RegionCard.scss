@@ -1,7 +1,11 @@
 .RegionCard {
   position: absolute;
+  min-width: 120px;
+  transform: translateX(-50%);
   box-shadow: 2px 2px 0px #664;
   
+  z-index: 1;
+
   &__title {
     padding: 4px;
     font-size: 12px;
@@ -31,7 +35,7 @@
   &:hover,
   &:focus,
   &:active {
-    // z-index: 9999;
+    z-index: 9999;
     .RegionCard__desc {
       height: 50px;
     }

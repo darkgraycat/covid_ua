@@ -1,45 +1,25 @@
 import React from 'react'
-import names from '../regionNames.js'
-import Scale from './Scale.jsx'
+import strings from '../strings'
 
-const CENTER = [49.0139, 32.2858]
-const SCALEX = 100
-const SCALEY = 150
+const RegionCard = ({ name, data, top, left }) => {
 
-const STRINGS = {
-  'Active': 'Активно',
-  'Confirmed': 'Підтверджено',
-  'Recovered': 'Виліковано',
-  'Deaths': 'Померло'
-}
-
-const RegionCard = ({ region }) => {
-
-  const { Province_State, Lat, Long_ } = region
-  const { Active, Confirmed, Recovered, Deaths } = region
+  const { active, confirmed, recovered, deaths } = data
 
   return (
     <div className='RegionCard' style={{
-      top: (CENTER[0] - Lat) * SCALEY,
-      left: (Long_ - CENTER[1]) * SCALEX
+      top: top + 'px',
+      left: left + 'px'
     }}>
-
       <div className="RegionCard__title">
-        {names[Province_State]}
+        {name}
       </div>
       <div className="RegionCard__desc">
-        <p>{STRINGS.Active}: <span>{Active}</span></p>
-        <p>{STRINGS.Confirmed}: <span>{Confirmed}</span></p>
-        <p>{STRINGS.Recovered}: <span>{Recovered}</span></p>
-        <p>{STRINGS.Deaths}: <span>{Deaths}</span></p>
+        <p>{strings.Active}: <span>{active}</span></p>
+        <p>{strings.Confirmed}: <span>{confirmed}</span></p>
+        <p>{strings.Recovered}: <span>{recovered}</span></p>
+        <p>{strings.Deaths}: <span>{deaths}</span></p>
       </div>
 
-      <Scale
-        active={Active}
-        confirmed={Confirmed}
-        recovered={Recovered}
-        deaths={Deaths}
-      />
     </div>
   )
 }
