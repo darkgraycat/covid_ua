@@ -18,7 +18,7 @@ export default {
   'Odessa Oblast': 'Одеська область',
   'Poltava Oblast': 'Полтавська область',
   'Rivne Oblast': 'Рівненська область',
-  'Sevastopol*': 'Севастополь область',
+  'Sevastopol*': 'Севастополь',
   'Sumy Oblast': 'Сумська область',
   'Ternopil Oblast': 'Тернопільська область',
   'Vinnytsia Oblast': 'Вінницька область',
