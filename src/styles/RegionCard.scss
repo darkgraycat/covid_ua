@@ -27,7 +27,8 @@
     transition: all 1s ease;
   }
   
-  &:hover {
+  &:hover
+  &:active {
     z-index: 9999;
 
     .RegionCard__desc {
