@@ -2,6 +2,8 @@ let data = null
 
 export default async country => (await getData()).filter(o => o['Country_Region'] == country)
 
+// TODO
+// getData by time, and fetch d-1 or d-2
 const getData = async () => {
   console.info('request data')
   if (data) return data

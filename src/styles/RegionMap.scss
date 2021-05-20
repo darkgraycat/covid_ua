@@ -1,0 +1,14 @@
+.RegionMap {
+  position: absolute;
+  user-select: none;
+  cursor: move;
+  width: 2000px;
+  height: 1500px;
+
+  left: -250px;
+  top: -250px;
+}
+
+.RegionMap .RegionCard {
+  transform: translate(1000px, 750px);
+}

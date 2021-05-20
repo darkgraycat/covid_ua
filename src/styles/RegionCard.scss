@@ -1,0 +1,14 @@
+.RegionCard {
+  position: absolute;
+  
+  &__title {
+    padding: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #111;
+    font-family: 'Comfortaa', cursive;
+    background-color: #ff0;
+    box-shadow: 2px 2px 0px #664;
+    width: fit-content;
+  }
+}
