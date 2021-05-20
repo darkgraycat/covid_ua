@@ -9,7 +9,8 @@ const Scale = ({ active, confirmed, recovered, deaths }) => {
     (active * FACTOR) + 'px',
     (deaths * FACTOR) + 'px'
   ]
-  const colors = ['#8882', '#8f82', '#f888', '#000f']
+  // const colors = ['#8884', '#8f86', '#f888', '#000f']
+  const colors = ['#888d', '#8f8d', '#f88d', '#000f']
 
   return (
     <div className="Scale">

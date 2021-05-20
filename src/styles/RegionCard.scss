@@ -1,5 +1,6 @@
 .RegionCard {
   position: absolute;
+  box-shadow: 2px 2px 0px #664;
   
   &__title {
     padding: 4px;
@@ -8,10 +9,10 @@
     color: #111;
     font-family: 'Comfortaa', cursive;
     background-color: #ff0;
-    z-index: 9999;
+    pointer-events: all;
   }
   
-  &__desc {
+  &__desc {    
     font-size: 10px;
     font-family: 'Comfortaa', cursive;
     color: #ddd;
@@ -27,14 +28,13 @@
     transition: all 1s ease;
   }
   
-  &:hover
+  &:hover,
+  &:focus,
   &:active {
-    z-index: 9999;
-
+    // z-index: 9999;
     .RegionCard__desc {
       height: 50px;
     }
   }
-  box-shadow: 2px 2px 0px #664;
 
 }

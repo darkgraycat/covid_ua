@@ -2,6 +2,10 @@ import React, { useEffect } from 'react'
 import RegionMap from './components/RegionMap.jsx'
 import makeScrollable from './makeScrollable.js'
 
+const STRINGS = {
+  'header': 'Covid-ситуація в Україні'
+}
+
 const App = () => {
 
   useEffect(() => {
@@ -11,7 +15,7 @@ const App = () => {
   return (
     <div className='App'>
       <div className="header">
-        <h1>Covid situation at Ukraine</h1>
+        <h1>{STRINGS.header}</h1>
       </div>
       <div className="container">
         <RegionMap />
