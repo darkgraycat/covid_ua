@@ -11,15 +11,15 @@ const Scale = ({ data, top, left }) => {
     (active + deaths) * FACTOR,
   ]
 
-  const colors = ['#0002', '#f804']
+  const colors = ['#888', '#222']
 
   return (
     <div className="Scale" style={{
       top: top + 'px',
       left: left + 'px'
     }}>
-      <div className="Scale__item" style={{ width: sizes[0], height: sizes[0], backgroundColor: colors[0] }}></div>
       <div className="Scale__item" style={{ width: sizes[1], height: sizes[1], backgroundColor: colors[1] }}></div>
+      <div className="Scale__item" style={{ width: sizes[0], height: sizes[0], backgroundColor: colors[0] }}></div>
     </div>
   )
 }

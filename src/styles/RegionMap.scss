@@ -2,14 +2,14 @@
   position: relative;
   user-select: none;
   // cursor: move;
-  width: 2000px;
-  height: 1500px;
+  width: 4000px;
+  height: 3000px;
 
-  left: -250px;
-  top: -250px;
+  left: -1200px;
+  top: -1000px;
 }
 
 .RegionMap .RegionCard,
 .RegionMap .Scale {
-  transform: translate(1100px, 750px);
+  transform: translate(2000px, 1500px);
 }
