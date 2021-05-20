@@ -5,7 +5,6 @@ import Scale from './Scale.jsx'
 import names from '../regionNames'
 import { CENTER, SCALEX, SCALEY } from '../mapParams'
 
-
 const RegionMap = () => {
 
   const [state, setState] = useState({ data: {}, ready: false })
@@ -38,10 +37,10 @@ const RegionMap = () => {
           const top = (CENTER[0] - Lat) * SCALEY
           const left = (Long_ - CENTER[1]) * SCALEX
           const data = {
-            active: Active,
-            confirmed: Confirmed,
-            recovered: Recovered,
-            deaths: Deaths
+            active: Number(Active),
+            confirmed: Number(Confirmed),
+            recovered: Number(Recovered),
+            deaths: Number(Deaths)
           }
 
           return (

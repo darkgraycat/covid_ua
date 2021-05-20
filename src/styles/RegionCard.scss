@@ -1,9 +1,8 @@
 .RegionCard {
   position: absolute;
-  min-width: 120px;
-  transform: translateX(-50%);
+  max-width: 140px;
   box-shadow: 2px 2px 0px #664;
-  
+
   z-index: 1;
 
   &__title {

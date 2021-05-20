@@ -1,18 +1,17 @@
 import React from 'react'
 
-const FACTOR = 0.002
+const FACTOR = 0.01
 
 const Scale = ({ data, top, left }) => {
 
-  const { active, confirmed, recovered, deaths } = data
+  const { active, deaths } = data
 
   const sizes = [
-    (confirmed * FACTOR) + 'px',
-    (recovered * FACTOR) + 'px',
-    (active * FACTOR) + 'px',
-    (deaths * FACTOR) + 'px'
+    active * FACTOR,
+    (active + deaths) * FACTOR,
   ]
-  const colors = ['#8884', '#8f86', '#f888', '#000f']
+
+  const colors = ['#0002', '#f804']
 
   return (
     <div className="Scale" style={{
@@ -21,8 +20,6 @@ const Scale = ({ data, top, left }) => {
     }}>
       <div className="Scale__item" style={{ width: sizes[0], height: sizes[0], backgroundColor: colors[0] }}></div>
       <div className="Scale__item" style={{ width: sizes[1], height: sizes[1], backgroundColor: colors[1] }}></div>
-      <div className="Scale__item" style={{ width: sizes[2], height: sizes[2], backgroundColor: colors[2] }}></div>
-      <div className="Scale__item" style={{ width: sizes[3], height: sizes[3], backgroundColor: colors[3] }}></div>
     </div>
   )
 }
