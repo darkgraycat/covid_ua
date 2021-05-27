@@ -1,8 +1,8 @@
 .App {
-padding: 20px;
+  padding: 20px;
 }
 
-.container {
+.container {  
   position: absolute;
   top: 0;
   left: 0;
@@ -27,6 +27,29 @@ padding: 20px;
 
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #444;
+    padding: 4px 10px;
+    font-size: 0.8em;
+    border-top: 4px solid #fff0;
+    &:hover,
+    &:active {
+      border-color: #fff;
+      color: #ff0;
+    }
+  }
 }
 
 .legend {
@@ -49,6 +72,7 @@ padding: 20px;
     color: #fff;
     &:nth-of-type(1) {background-color: #888;}
     &:nth-of-type(2) {background-color: #222;}
+    padding: 4px 4px;
   }
 
 }
@@ -58,5 +82,27 @@ padding: 20px;
   .legend,
   .header {
     font-size: 10px;
+  }
+}
+
+
+.loading::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border: 10px solid #4441;
+  border-radius: 50%;
+  border-top-color: #444;
+  box-sizing: border-box;
+  animation: rotate 1s linear infinite;
+
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
