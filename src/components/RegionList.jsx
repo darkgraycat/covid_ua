@@ -6,15 +6,17 @@ const RegionList = ({ history }) => {
   return (
     <ul className="RegionList">
       {newer.map((region, i) => {
+        const n = newer[i]
+        const o = older[i]
         const data = {
-          active: Number(newer.Active),
-          confirmed: Number(newer.Confirmed),
-          recovered: Number(newer.Recovered),
-          deaths: Number(newer.Deaths),
-          newActive: Number(newer.Active - older.Active),
-          newConfirmed: Number(newer.Confirmed - older.Confirmed),
-          newRecovered: Number(newer.Recovered - older.Recovered),
-          newDeaths: Number(newer.Deaths - older.Deaths)
+          active: Number(n.Active),
+          confirmed: Number(n.Confirmed),
+          recovered: Number(n.Recovered),
+          deaths: Number(n.Deaths),
+          newActive: Number(n.Active - o.Active),
+          newConfirmed: Number(n.Confirmed - o.Confirmed),
+          newRecovered: Number(n.Recovered - o.Recovered),
+          newDeaths: Number(n.Deaths - o.Deaths)
         }
         return <li key={i}>
           <RegionListItem name={region['Province_State']} data={data} />
