@@ -2,10 +2,20 @@ import React from 'react'
 
 const RegionListItem = ({ name, data }) => {
 
-  const { active, confirmed, recovered, deaths } = data
+  const {
+    active,
+    confirmed,
+    recovered,
+    deaths,
+
+    newActive,
+    newConfirmed,
+    newRecovered,
+    newDeaths
+  } = data
 
   return (
-    <div></div>
+    <div className="RegionListItem"></div>
   )
 }
 

@@ -40,12 +40,15 @@ const App = () => {
         <div className="container">
           <Route path='/chart' exact>
             {state.ready
-              ? <RegionList history={state.data} />
+              ? <div className="loading">NOT IMPLEMENTED</div>
               : <div className="loading"></div>
             }
           </Route>
           <Route path='/cards' exact>
-            <h1>Cards</h1>
+            {state.ready
+              ? <RegionList history={state.data} />
+              : <div className="loading"></div>
+            }
           </Route>
           <Route path='/' exact>
             {state.ready

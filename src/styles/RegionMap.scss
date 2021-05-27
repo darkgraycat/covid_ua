@@ -58,6 +58,7 @@
   &Circle {
     position: absolute;
     pointer-events: none;
+    opacity: .8;
   
     &__item {
       position: absolute;
