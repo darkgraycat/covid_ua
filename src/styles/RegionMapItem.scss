@@ -1,4 +1,4 @@
-.RegionCard {
+.RegionMapItem {
   position: absolute;
   max-width: 160px;
   box-shadow: 4px 4px 0px #664;
@@ -36,7 +36,7 @@
   &:focus,
   &:active {
     z-index: 9999;
-    .RegionCard__desc {
+    .RegionMapItem__desc {
       height: 60px;
     }
   }
@@ -46,7 +46,7 @@
 
 .active {
   z-index: 9999;
-    .RegionCard__desc {
+    .RegionMapItem__desc {
       height: 60px;
     }
 }

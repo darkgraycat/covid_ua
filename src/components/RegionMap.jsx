@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import RegionCard from './RegionCard.jsx'
-import fetchCountryData from '../fetchCountryData.js'
-import Scale from './Scale.jsx'
-import names from '../regionNames'
+import React, { useEffect } from 'react'
+import RegionMapItem from './RegionMapItem.jsx'
+import RegionMapCircle from './RegionMapCircle.jsx'
+import strings from '../strings'
 import { CENTER, SCALEX, SCALEY } from '../mapParams'
+import makeScrollable from '../makeScrollable.js'
 
-const RegionMap = () => {
+const RegionMap = ({ regions }) => {
 
-  const [state, setState] = useState({ data: {}, ready: false })
-
-  const fetchData = () => {
-    fetchCountryData('Ukraine')
-      .then(result => {
-        setState({ data: result, ready: true })
-      })
-      .catch(e => console.log(e))
-  }
-
-  useEffect(() => fetchData(), [])
+  useEffect(() => {
+    console.log('Map use effect')
+    makeScrollable(document.querySelector('.RegionMap'))
+  }, [])
 
   return (
     <div className='RegionMap'>
-      {state.ready
-        ? state.data.map(region => {
+      {
+        regions.map(region => {
 
           const {
             Province_State,
@@ -45,13 +38,13 @@ const RegionMap = () => {
 
           return (
             <>
-              <Scale
+              <RegionMapCircle
                 data={data}
                 top={top}
                 left={left}
               />
-              <RegionCard
-                name={names[Province_State]}
+              <RegionMapItem
+                name={strings.regions[Province_State]}
                 data={data}
                 top={top}
                 left={left}
@@ -59,7 +52,6 @@ const RegionMap = () => {
             </>
           )
         })
-        : <div>Loading</div>
       }
     </div>
   )

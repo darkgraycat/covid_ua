@@ -7,9 +7,8 @@
 
   left: -1200px;
   top: -1000px;
-}
 
-.RegionMap .RegionCard,
-.RegionMap .Scale {
-  transform: translate(2000px, 1500px);
+  &Item, &Circle {
+    transform: translate(2000px, 1500px);
+  }
 }

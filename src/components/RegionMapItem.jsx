@@ -1,7 +1,7 @@
 import React from 'react'
 import strings from '../strings'
 
-const RegionCard = ({ name, data, top, left }) => {
+const RegionMapItem = ({ name, data, top, left }) => {
 
   const { active, confirmed, recovered, deaths } = data
 
@@ -11,14 +11,14 @@ const RegionCard = ({ name, data, top, left }) => {
   }
 
   return (
-    <div className='RegionCard' style={{
+    <div className='RegionMapItem' style={{
       top: top + 'px',
       left: left + 'px'
     }}>
-      <div className="RegionCard__title" onTouchStart={handleTouch}>
+      <div className="RegionMapItem__title" onTouchStart={handleTouch}>
         {name}
       </div>
-      <div className="RegionCard__desc">
+      <div className="RegionMapItem__desc">
         <p>{strings.Active}: <span>{active}</span></p>
         <p>{strings.Confirmed}: <span>{confirmed}</span></p>
         <p>{strings.Recovered}: <span>{recovered}</span></p>
@@ -29,4 +29,4 @@ const RegionCard = ({ name, data, top, left }) => {
   )
 }
 
-export default RegionCard
+export default RegionMapItem

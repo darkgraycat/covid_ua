@@ -1,22 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import RegionMap from './components/RegionMap.jsx'
-import makeScrollable from './makeScrollable.js'
+import fetchHistoryData from './fetchHistoryData.js'
 import strings from './strings'
-
 
 const App = () => {
 
+  const [state, setState] = useState({ data: [], ready: false })
+
   useEffect(() => {
-    makeScrollable(document.querySelector('.RegionMap'))
+    console.log('App use effect')
+
+    fetchHistoryData()
+      .then(result => setState({ data: result, ready: true }))
+      .catch(error => console.error(error))
   }, [])
 
   return (
     <div className='App'>
       <div className="header">
         <h1>{strings.header}</h1>
+        <nav>
+          <ul>
+            <li><a href="/">{strings.nav_map}</a></li>
+            <li><a href="/">{strings.nav_card}</a></li>
+            <li><a href="/">{strings.nav_chart}</a></li>
+          </ul>
+        </nav>
       </div>
       <div className="container">
-        <RegionMap />
+        {state.ready
+          ? <RegionMap regions={state.data[0]} />
+          : <div className="loading"></div>
+        }
       </div>
       <div className="legend">
         <h2>{strings.legend}</h2>
