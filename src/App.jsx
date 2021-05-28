@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom"
 import RegionList from './components/RegionList.jsx'
 import RegionMap from './components/RegionMap.jsx'
+import RegionChart from './components/RegionChart.jsx'
 import fetchHistoryData from './fetchHistoryData.js'
 import strings from './strings'
 
@@ -24,7 +20,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Router>
+      <BrowserRouter>
         <div className="header">
           <h1>{strings.header}</h1>
           <nav>
@@ -37,33 +33,39 @@ const App = () => {
           </nav>
         </div>
 
-        <div className="container">
-          <Route path='/chart' exact>
-            {state.ready
-              ? <div className="loading">NOT IMPLEMENTED</div>
-              : <div className="loading"></div>
-            }
+        <Switch>
+          <Route path='/chart'>
+            <div className="container">
+              {state.ready
+                ? <RegionList history={state.data} />
+                : <div className="loading"></div>
+              }
+            </div>
           </Route>
-          <Route path='/cards' exact>
-            {state.ready
-              ? <RegionList history={state.data} />
-              : <div className="loading"></div>
-            }
+          <Route path='/cards'>
+            <div className="map-container">
+              {state.ready
+                ? <RegionMap regions={state.data[0]} />
+                : <div className="loading"></div>
+              }
+            </div>
           </Route>
-          <Route path='/' exact>
-            {state.ready
-              ? <RegionMap regions={state.data[0]} />
-              : <div className="loading"></div>
-            }
+          <Route path='/'>
+            <div className="chart-container">
+              {state.ready
+                ? <RegionChart history={state.data} />
+                : <div className="loading"></div>
+              }
+            </div>
           </Route>
-        </div>
+        </Switch>
 
         <div className="legend">
           <h2>{strings.legend}</h2>
           <p>{strings.Active}</p>
           <p>{strings.Deaths}</p>
         </div>
-      </Router>
+      </BrowserRouter>
     </div>
   )
 }
