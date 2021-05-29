@@ -9,7 +9,7 @@ const RegionChart = ({ history }) => {
     const labels = strings.days.map((day, i, arr) => arr[(i + dayN) % 7]).reverse()
 
     const result = labels
-    console.log('test', result)
+    console.log('test days', result)
   }
 
   const test = () => {
