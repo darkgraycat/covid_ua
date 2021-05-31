@@ -11,8 +11,6 @@ const App = () => {
   const [state, setState] = useState({ data: [], ready: false })
 
   useEffect(() => {
-    console.log('App use effect')
-
     fetchHistoryData()
       .then(result => setState({ data: result, ready: true }))
       .catch(error => console.error(error))
