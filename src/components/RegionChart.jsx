@@ -26,7 +26,6 @@ const RegionChart = ({ history }) => {
         datasets[j].data[i] = regionData.Active
       })
     })
-    console.log(labels)
     return {
       labels,
       datasets
@@ -34,7 +33,6 @@ const RegionChart = ({ history }) => {
   }
 
   const createChart = (data) => {
-    console.log('creating chart')
     Chart.register(...registerables)
     new Chart(
       document.getElementById('chart-canvas'),
@@ -51,11 +49,6 @@ const RegionChart = ({ history }) => {
 
   useEffect(() => {
     createChart(createData())
-    console.log('color', getRandomColor())
-    console.log('color', getRandomColor())
-    console.log('color', getRandomColor())
-    console.log('color', getRandomColor())
-    console.log('color', getRandomColor())
   }, [])
 
   return (
