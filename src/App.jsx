@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom"
 import RegionList from './components/RegionList.jsx'
 import RegionMap from './components/RegionMap.jsx'
+import RegionChart from './components/RegionChart.jsx'
 import fetchHistoryData from './fetchHistoryData.js'
 import strings from './strings'
 
@@ -15,8 +11,6 @@ const App = () => {
   const [state, setState] = useState({ data: [], ready: false })
 
   useEffect(() => {
-    console.log('App use effect')
-
     fetchHistoryData()
       .then(result => setState({ data: result, ready: true }))
       .catch(error => console.error(error))
@@ -24,12 +18,11 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Router>
+      <BrowserRouter>
         <div className="header">
           <h1>{strings.header}</h1>
           <nav>
             <ul>
-              {/* mb add some homepage with aboutme */}
               <li><Link to='/'>{strings.nav_map}</Link></li>
               <li><Link to='/cards'>{strings.nav_card}</Link></li>
               <li><Link to='/chart'>{strings.nav_chart}</Link></li>
@@ -37,33 +30,39 @@ const App = () => {
           </nav>
         </div>
 
-        <div className="container">
-          <Route path='/chart' exact>
-            {state.ready
-              ? <div className="loading">NOT IMPLEMENTED</div>
-              : <div className="loading"></div>
-            }
+        <Switch>
+          <Route exact path='/cards'>
+            <div className="container">
+              {state.ready
+                ? <RegionList history={state.data} />
+                : <div className="loading"></div>
+              }
+            </div>
           </Route>
-          <Route path='/cards' exact>
-            {state.ready
-              ? <RegionList history={state.data} />
-              : <div className="loading"></div>
-            }
+          <Route exact path='/chart'>
+            <div className="chart-container">
+              {state.ready
+                ? <RegionChart history={state.data} />
+                : <div className="loading"></div>
+              }
+            </div>
           </Route>
-          <Route path='/' exact>
-            {state.ready
-              ? <RegionMap regions={state.data[0]} />
-              : <div className="loading"></div>
-            }
+          <Route exact path='/'>
+            <div className="map-container">
+              {state.ready
+                ? <RegionMap regions={state.data[0]} />
+                : <div className="loading"></div>
+              }
+            </div>
           </Route>
-        </div>
+        </Switch>
 
         <div className="legend">
           <h2>{strings.legend}</h2>
           <p>{strings.Active}</p>
           <p>{strings.Deaths}</p>
         </div>
-      </Router>
+      </BrowserRouter>
     </div>
   )
 }

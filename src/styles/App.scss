@@ -1,8 +1,23 @@
 .App {
-  padding: 20px;
+  background-color: #ddd;
 }
 
 .container {  
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  background-color: #ddd;
+}
+
+.chart-container {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  padding-top: 120px;
+  background-color: #ddd;
+}
+
+.map-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -13,7 +28,7 @@
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   color: #444;
 
@@ -40,10 +55,14 @@
   a {
     text-decoration: none;
     color: #fff;
+    font-weight: 900;
     background-color: #444;
     padding: 4px 10px;
     font-size: 0.8em;
-    border-top: 4px solid #fff0;
+    border: 8px solid #fff0;
+    border-top: 0;
+    border-bottom: 0;
+    transition: border-color 1s;
     &:hover,
     &:active {
       border-color: #fff;
@@ -53,7 +72,7 @@
 }
 
 .legend {
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   color: #444;
 

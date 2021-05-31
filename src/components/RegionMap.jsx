@@ -8,7 +8,6 @@ import makeScrollable from '../makeScrollable.js'
 const RegionMap = ({ regions }) => {
 
   useEffect(() => {
-    console.log('Map use effect')
     makeScrollable(document.querySelector('.RegionMap'))
   }, [])
 
