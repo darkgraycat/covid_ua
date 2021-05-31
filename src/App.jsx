@@ -23,7 +23,6 @@ const App = () => {
           <h1>{strings.header}</h1>
           <nav>
             <ul>
-              {/* mb add some homepage with aboutme */}
               <li><Link to='/'>{strings.nav_map}</Link></li>
               <li><Link to='/cards'>{strings.nav_card}</Link></li>
               <li><Link to='/chart'>{strings.nav_chart}</Link></li>
@@ -32,7 +31,7 @@ const App = () => {
         </div>
 
         <Switch>
-          <Route path='/cards'>
+          <Route exact path='/cards'>
             <div className="container">
               {state.ready
                 ? <RegionList history={state.data} />
@@ -40,7 +39,7 @@ const App = () => {
               }
             </div>
           </Route>
-          <Route path='/chart'>
+          <Route exact path='/chart'>
             <div className="chart-container">
               {state.ready
                 ? <RegionChart history={state.data} />
@@ -48,7 +47,7 @@ const App = () => {
               }
             </div>
           </Route>
-          <Route path='/'>
+          <Route exact path='/'>
             <div className="map-container">
               {state.ready
                 ? <RegionMap regions={state.data[0]} />

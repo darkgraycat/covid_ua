@@ -1,7 +1,8 @@
+const HISTORY_DAYS = 7
 
 export default async () => {
   const history = []
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < HISTORY_DAYS; i++) {
     history.push(
       (await fetchData(generateURL(i + 1)))
         .filter(data => data['Country_Region'] === 'Ukraine')
