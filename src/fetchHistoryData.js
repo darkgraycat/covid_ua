@@ -13,10 +13,12 @@ export default async () => {
 
 const generateURL = day => {
   const path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
-  const now = new Date()
-  const d = now.getDate() - day
-  const m = now.getMonth() + 1
-  const y = now.getFullYear()
+  const today = new Date()
+  const needed = new Date()
+  needed.setDate(today.getDate() - day)
+  const d = needed.getDate() - day
+  const m = needed.getMonth() + 1
+  const y = needed.getFullYear()
   return `${path}${m < 10 ? '0' + m : m}-${d < 10 ? '0' + d : d}-${y}.csv`
 }
 

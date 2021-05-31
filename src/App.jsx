@@ -31,7 +31,7 @@ const App = () => {
         </div>
 
         <Switch>
-          <Route exact path='/cards'>
+          <Route path='/cards'>
             <div className="container">
               {state.ready
                 ? <RegionList history={state.data} />
@@ -39,7 +39,7 @@ const App = () => {
               }
             </div>
           </Route>
-          <Route exact path='/chart'>
+          <Route path='/chart'>
             <div className="chart-container">
               {state.ready
                 ? <RegionChart history={state.data} />
@@ -47,7 +47,7 @@ const App = () => {
               }
             </div>
           </Route>
-          <Route exact path='/'>
+          <Route path='/'>
             <div className="map-container">
               {state.ready
                 ? <RegionMap regions={state.data[0]} />
