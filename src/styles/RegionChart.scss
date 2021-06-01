@@ -1,7 +1,10 @@
 .RegionChart {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-bottom: 200px;
 
   canvas {
-    max-height: 80%;
+    height: 500px;
   }
 }
